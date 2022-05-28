@@ -7,7 +7,7 @@ type AddItemFormPropsType = {
 }
 
 export function AddItemForm(props: AddItemFormPropsType) {
-    console.log("AddItemForm")
+
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
@@ -19,9 +19,11 @@ export function AddItemForm(props: AddItemFormPropsType) {
             setError("Title is required");
         }
     }
+
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
+
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
@@ -38,8 +40,7 @@ export function AddItemForm(props: AddItemFormPropsType) {
                    label="Title"
                    helperText={error}
         />
-        <IconButton color="primary"
-                    onClick={addItem}>
+        <IconButton color="primary" onClick={addItem}>
             <AddBox />
         </IconButton>
     </div>
